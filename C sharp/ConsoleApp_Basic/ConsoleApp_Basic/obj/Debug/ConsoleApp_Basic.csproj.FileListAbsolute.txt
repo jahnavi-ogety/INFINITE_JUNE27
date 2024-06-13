@@ -1,0 +1,7 @@
+C:\Batch1\C sharp\ConsoleApp_Basic\ConsoleApp_Basic\bin\Debug\ConsoleApp_Basic.exe.config
+C:\Batch1\C sharp\ConsoleApp_Basic\ConsoleApp_Basic\bin\Debug\ConsoleApp_Basic.exe
+C:\Batch1\C sharp\ConsoleApp_Basic\ConsoleApp_Basic\bin\Debug\ConsoleApp_Basic.pdb
+C:\Batch1\C sharp\ConsoleApp_Basic\ConsoleApp_Basic\obj\Debug\ConsoleApp_Basic.csproj.AssemblyReference.cache
+C:\Batch1\C sharp\ConsoleApp_Basic\ConsoleApp_Basic\obj\Debug\ConsoleApp_Basic.csproj.CoreCompileInputs.cache
+C:\Batch1\C sharp\ConsoleApp_Basic\ConsoleApp_Basic\obj\Debug\ConsoleApp_Basic.exe
+C:\Batch1\C sharp\ConsoleApp_Basic\ConsoleApp_Basic\obj\Debug\ConsoleApp_Basic.pdb
