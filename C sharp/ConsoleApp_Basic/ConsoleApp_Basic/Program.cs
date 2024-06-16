@@ -23,7 +23,7 @@ namespace ConsoleApp_Basic
             // to call an static func we dont need to create an obj
             int sum = Addno(5, 6);
             Console.WriteLine(sum);
-            NullableEg.nullexp();
+            NullableEg.Nullexp();
             Console.Read();
 
             

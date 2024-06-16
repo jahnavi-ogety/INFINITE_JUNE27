@@ -5,7 +5,7 @@ namespace ConsoleApp_Basic
 {
     class NullableEg
     {
-        public static void nullexp()
+        public static void Nullexp()
         {
             int  ? data1 = 600;
             int data2;
@@ -16,6 +16,11 @@ namespace ConsoleApp_Basic
             else
                 data2 =(int) data1;
             Console.WriteLine(data2);
+
+            // Null coalising can replace the above code
+            int? data11 = null;
+            int data22 = data1 ?? 0;
+            Console.WriteLine(data22);
         }
     }
 }
