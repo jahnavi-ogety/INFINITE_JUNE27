@@ -1,0 +1,7 @@
+C:\Batch1\C sharp\Day4\Day4\bin\Debug\Day4.exe.config
+C:\Batch1\C sharp\Day4\Day4\bin\Debug\Day4.exe
+C:\Batch1\C sharp\Day4\Day4\bin\Debug\Day4.pdb
+C:\Batch1\C sharp\Day4\Day4\obj\Debug\Day4.csproj.AssemblyReference.cache
+C:\Batch1\C sharp\Day4\Day4\obj\Debug\Day4.csproj.CoreCompileInputs.cache
+C:\Batch1\C sharp\Day4\Day4\obj\Debug\Day4.exe
+C:\Batch1\C sharp\Day4\Day4\obj\Debug\Day4.pdb

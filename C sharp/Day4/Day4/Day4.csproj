@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0D68BAD6-A235-4415-8C0A-912C11482B6C}</ProjectGuid>
+    <ProjectGuid>{299D6052-E1AE-4870-A6AD-427EE16C152B}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Day3</RootNamespace>
-    <AssemblyName>Day3</AssemblyName>
+    <RootNamespace>Day4</RootNamespace>
+    <AssemblyName>Day4</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Day3.ParamEx</StartupObject>
+    <StartupObject>Day4.Emptest</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,10 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArrayEg.cs" />
-    <Compile Include="DecisionMaking.cs" />
-    <Compile Include="Loops.cs" />
-    <Compile Include="ParamEx.cs" />
+    <Compile Include="Employee.cs" />
+    <Compile Include="Enumerations.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
