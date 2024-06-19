@@ -1,7 +1,0 @@
-C:\Batch1\C sharp\Handson\Handson\Handson\bin\Debug\Handson.exe.config
-C:\Batch1\C sharp\Handson\Handson\Handson\bin\Debug\Handson.exe
-C:\Batch1\C sharp\Handson\Handson\Handson\bin\Debug\Handson.pdb
-C:\Batch1\C sharp\Handson\Handson\Handson\obj\Debug\Handson.csproj.AssemblyReference.cache
-C:\Batch1\C sharp\Handson\Handson\Handson\obj\Debug\Handson.csproj.CoreCompileInputs.cache
-C:\Batch1\C sharp\Handson\Handson\Handson\obj\Debug\Handson.exe
-C:\Batch1\C sharp\Handson\Handson\Handson\obj\Debug\Handson.pdb

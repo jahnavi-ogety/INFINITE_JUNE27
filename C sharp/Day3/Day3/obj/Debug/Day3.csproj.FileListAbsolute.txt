@@ -1,7 +1,0 @@
-C:\Batch1\C sharp\Day3\Day3\obj\Debug\Day3.csproj.AssemblyReference.cache
-C:\Batch1\C sharp\Day3\Day3\obj\Debug\Day3.csproj.CoreCompileInputs.cache
-C:\Batch1\C sharp\Day3\Day3\bin\Debug\Day3.exe.config
-C:\Batch1\C sharp\Day3\Day3\bin\Debug\Day3.exe
-C:\Batch1\C sharp\Day3\Day3\bin\Debug\Day3.pdb
-C:\Batch1\C sharp\Day3\Day3\obj\Debug\Day3.exe
-C:\Batch1\C sharp\Day3\Day3\obj\Debug\Day3.pdb

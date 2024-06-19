@@ -1,7 +1,0 @@
-C:\Batch1\C sharp\Dayy5\Dayy5\obj\Debug\Dayy5.csproj.AssemblyReference.cache
-C:\Batch1\C sharp\Dayy5\Dayy5\obj\Debug\Dayy5.csproj.CoreCompileInputs.cache
-C:\Batch1\C sharp\Dayy5\Dayy5\bin\Debug\Dayy5.exe.config
-C:\Batch1\C sharp\Dayy5\Dayy5\bin\Debug\Dayy5.exe
-C:\Batch1\C sharp\Dayy5\Dayy5\bin\Debug\Dayy5.pdb
-C:\Batch1\C sharp\Dayy5\Dayy5\obj\Debug\Dayy5.exe
-C:\Batch1\C sharp\Dayy5\Dayy5\obj\Debug\Dayy5.pdb
