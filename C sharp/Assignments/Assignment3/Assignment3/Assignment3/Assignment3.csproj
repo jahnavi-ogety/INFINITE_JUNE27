@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0466404D-A840-42ED-B1C4-561777240A03}</ProjectGuid>
+    <ProjectGuid>{E2B58764-3A15-43AC-8027-D77EC81E9ED3}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Assignment2</RootNamespace>
-    <AssemblyName>Assignment2</AssemblyName>
+    <RootNamespace>Assignment3</RootNamespace>
+    <AssemblyName>Assignment3</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Assignment2.Reverse</StartupObject>
+    <StartupObject>Assignment3.Accounts</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,14 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Arr1.cs" />
-    <Compile Include="Arr22.cs" />
-    <Compile Include="Arr3.cs" />
-    <Compile Include="Equal.cs" />
-    <Compile Include="Pgrm2.cs" />
-    <Compile Include="prgm1.cs" />
-    <Compile Include="Reverse.cs" />
-    <Compile Include="StrOne.cs" />
+    <Compile Include="Accounts.cs" />
+    <Compile Include="Student.cs" />
+    <Compile Include="Salesdetails.cs" />
+    <Compile Include="Customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
