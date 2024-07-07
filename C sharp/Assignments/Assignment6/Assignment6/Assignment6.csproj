@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C28F6327-011C-43BD-B0AB-77CBE2497BF2}</ProjectGuid>
+    <ProjectGuid>{A3964F28-C968-4C39-95EC-5FABAA3E3C62}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>CC2</RootNamespace>
-    <AssemblyName>CC2</AssemblyName>
+    <RootNamespace>Assignment6</RootNamespace>
+    <AssemblyName>Assignment6</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>CC2.Program2</StartupObject>
+    <StartupObject>TestDLL.Program1</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -48,7 +48,9 @@
   <ItemGroup>
     <Compile Include="Program1.cs" />
     <Compile Include="Program2.cs" />
-    <Compile Include="Program3.cs" />
+    <Compile Include="Program4.cs" />
+    <Compile Include="Program5.cs" />
+    <Compile Include="Program_3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
