@@ -1,0 +1,95 @@
+--Retrieve a list of MANAGERS. 
+select * from EMP
+where job= 'manager'
+
+-- Find out the names and salaries of all employees earning more than 1000 per month.
+select ename,sal from EMP
+where sal >1000
+
+--Display the names and salaries of all employees except JAMES.
+select ename,sal
+from EMP
+where ename !='james'
+
+--Find out the details of employees whose names begin with ‘S'
+select * from EMP
+where ename like 's%'
+
+--Find out the names of all employees that have ‘A’ anywhere in their name.
+SELECT ename
+FROM EMP
+WHERE ename LIKE '%A%'
+
+--Find out the names of all employees that have ‘L’ as their third character in their name.
+SELECT ename
+FROM EMP
+WHERE ENAME LIKE '__L%';
+
+ 
+--Calculate the total monthly salary of all employees.
+select SUM(SAL) AS "Total Monthly Salary"
+from EMP
+
+--Print the average annual salary .
+select AVG(SAL * 12) AS "Average Annual Salary"
+from EMP
+
+--Select the name, job, salary, department number of all employees except SALESMAN from department number 30.
+select ename,job,sal,deptno
+from EMP
+where DEPTNO = 30 AND JOB != 'SALESMAN'
+
+--List unique departments of the EMP table.
+select DISTINCT deptno
+from EMP;
+
+--List the name and salary of employees who earn more than 1500 and are in department 10 or 30.
+--Label the columns Employee and Monthly Salary respectively.
+select ename as "Employee", sal as "Monthly Salary"
+from EMP
+WHERE SAL > 1500 AND DEPTNO IN (10, 30);
+
+--Display the name, job, and salary of all the employees whose job is MANAGER or ANALYST
+--and their salary is not equal to 1000, 3000, or 5000.
+select ename, job, sal
+FROM EMP
+WHERE job IN ('MANAGER', 'ANALYST') AND sal NOT IN (1000, 3000, 5000);
+
+--Display the name, salary and commission for all employees whose commission amount is greater than their salary increased by 10%.
+select ename, sal, comm
+from EMP
+where comm > sal * 0.1
+
+--Display the name of all employees who have two Ls in their name and are in department 30 or their manager is 7782.
+select ename
+from EMP
+WHERE (ename LIKE '%L%L%' AND deptno = 30)
+   OR mgr_id = 7782
+
+--Retrieve the names of departments in ascending order and their employees in descending order.
+select D.DNAME, E.ENAME
+from DEPT D
+LEFT JOIN EMP E ON D.DEPTNO = E.DEPTNO
+order by D.DNAME ASC, E.ENAME DESC
+
+--Compute daily salary of JONES. 
+select empno, ename, sal, sal / 30.0 AS daily_salary
+from EMP
+where ename = 'JONES'
+
+--- Display the names of employees with experience of over 30 years and under 40 yrs. 
+SELECT ename, hiredate, DATEDIFF(YEAR, hiredate, GETDATE()) AS experience_years
+FROM EMP
+WHERE DATEDIFF(YEAR, hiredate, GETDATE()) > 30 AND DATEDIFF(YEAR, hiredate, GETDATE()) < 40;
+
+-- Count the total number of employees.
+SELECT COUNT(*) AS total_employees
+FROM EMP
+
+
+-- Display the name of all employees who have two Ls in their name and are in 
+--department 30 or their manager is 7782.
+SELECT ename
+FROM EMP
+WHERE (ename LIKE '%L%L%' OR ename LIKE '%LL%') 
+  AND (deptno = 30 OR mgr_id = 7782)
