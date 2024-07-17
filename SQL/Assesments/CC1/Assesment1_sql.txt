@@ -1,0 +1,151 @@
+create database assesment1
+
+Create Table person (
+	Name varchar(20),
+	BirthDate Date
+	);
+
+insert into person values('jahnavi','2001-06-27')
+insert into person values('swarna','1966-10-08')
+
+
+--1. Write a query to display your birthday( day of week).
+
+SELECT datename(dw, BirthDate) AS 'Day Of Week'
+FROM person
+WHERE BirthDate = '2001-06-27'
+------------------------------------------------------------------
+
+--2.Write a query to display your age in days
+SELECT DATEDIFF(day, '2001-06-27', GETDATE()) AS Age_In_Days
+
+---------------------------------------------------------------------
+create table DEPT
+(
+deptno int primary key,
+dname varchar(15),
+loc varchar(10)
+)
+
+create table EMP
+(
+empno int primary key,
+ename varchar(15),
+job varchar(15),
+mgr_id int,
+hiredate date,
+sal decimal(7,3),
+comm decimal(7,2),
+deptno int,
+foreign key (deptno) references DEPT(deptno)
+)
+
+insert into DEPT values(10,'Accounting','NEW YORK'),
+                       (20,'RESEARCH','DALLAS' ),
+					   (30,'SALES','CHICAGO'),
+					   (40,'OPERATIONS','BOSTON')
+
+					   
+insert into EMP values
+(7369, 'SMITH', 'CLERK', 7902, '1980-12-17', 800, NULL, 20),
+(7499, 'ALLEN', 'SALESMAN', 7698, '1981-02-20', 1600, 300, 30),
+(7521, 'WARD', 'SALESMAN', 7698, '1981-02-22', 1250, 500, 30),
+(7566, 'JONES', 'MANAGER', 7839, '1981-04-02', 2975, NULL, 20),
+(7654, 'MARTIN', 'SALESMAN', 7698, '1981-09-28', 1250, 1400, 30),
+(7698, 'BLAKE', 'MANAGER', 7839, '1981-05-01', 2850, NULL, 30),
+(7782, 'CLARK', 'MANAGER', 7839, '1981-06-09', 2450, NULL, 10),
+(7788, 'SCOTT', 'ANALYST', 7566, '1987-04-19', 3000, NULL, 20),
+(7839, 'KING', 'PRESIDENT', NULL, '1981-11-17', 5000, NULL, 10),
+(7844, 'TURNER', 'SALESMAN', 7698, '1981-09-08', 1500, 0, 30),
+(7876, 'ADAMS', 'CLERK', 7788, '1987-05-23', 1100, NULL, 20),
+(7900, 'JAMES', 'CLERK', 7698, '1981-12-03', 950, NULL, 30),
+(7902, 'FORD', 'ANALYST', 7566, '1981-12-03', 3000, NULL, 20),
+(7934, 'MILLER', 'CLERK', 7782, '1982-01-23', 1300, NULL, 10),
+
+
+
+
+select * from EMP
+-----------------------------------------------------------------------
+--3.Write a query to display all employees information those who joined before 5 years in the current month
+
+select empno, ename, hiredate
+From EMP
+Where DATEDIFF(year, hiredate, GETDATE()) >= 5
+
+---------------------------------------------------------------------------
+--4.Create table Employee with empno, ename, sal, doj columns and perform the following operations in a single transaction
+
+BEGIN TRANSACTION
+create table Employee (
+    empno int PRIMARY KEY,
+    ename varchar(50),
+    sal decimal(10, 2),
+    doj date
+)
+--a.First insert 3 rows 
+insert into Employee (empno, ename, sal, doj)
+values (1, 'kiran', 50000, '2022-01-01'),
+       (2, 'lavanya', 60000, '2023-03-15'),
+       (3, 'sujatha', 55000, '2024-02-10')
+
+ select * from Employee
+
+--b. Update the second row sal with 15% increment 
+ update Employee
+ set sal = sal * 1.15
+ WHERE empno = 2
+ 
+ --c.Delete first row.
+   delete from Employee
+    where empno = 1
+  rollback transaction
+-------------------------------------
+ 
+ --5.Create a user defined function calculate Bonus for all employees of a  given job
+
+ Create table Employee1(empno numeric(10) primary key,
+	ename varchar(20),
+	DeptNo INT, 
+	sal DECIMAL(10, 2)
+	)
+
+Insert into Employee1 (empno, ename, DeptNo, sal) values 
+	(1, 'jahnavi', 10, 20000), 
+	(2, 'kumar', 12, 25000), 
+	(3, 'vishu', 13, 12000), 
+	(4, 'shanthi', 14, 23000), 
+	(5, 'aruna', 20, 18000)
+
+select * From Employee1
+
+
+
+Create Function CalculateBonus (@DeptNo INT, @sal Decimal(10, 2))
+Returns decimal(10, 2)
+as
+begin
+    declare @bonus decimal(10, 2);
+
+--	a. For Deptno 10 employees 15% of sal as bonus.
+    if @deptno = 10
+        set @bonus = 0.15 * @sal;
+
+--	b. For Deptno 20 employees  20% of sal as bonus
+
+    else if @deptno = 20
+        set @bonus = 0.20 * @sal;
+
+--	c. For Others employees 5%of sal as bonus
+
+    else
+        set @bonus = 0.05 * @sal;
+
+    return @bonus;
+end
+
+
+Select empno, ename, sal, dbo.CalculateBonus(DeptNo, sal) AS bonus
+From Employee1
+
+select * From Employee1
