@@ -1,0 +1,107 @@
+create database Assignment4
+--1.Write a T-SQL Program to find the factorial of a given number.
+create or alter function FactorialNum (@number int)
+returns BIGINT
+as
+begin
+    declare @factorial BIGINT=1
+	if @number<0
+	set @factorial = null;
+	else
+	begin
+	while @number > 1
+	begin
+	set @factorial = @factorial * @number
+	set @number = @number -1
+	end
+	end
+	return @factorial
+	end
+
+select dbo.factorialnum(4) as Factorial_of_4
+--------------------------------------------------------------------------------------------------------
+
+--2.Create a stored procedure to generate multiplication table that accepts a number and generates up to a given number. 
+
+
+create or alter procedure GenerateMultiplicationTable
+    @number int
+as
+begin
+    
+    if @number < 1
+    begin
+        print 'Error: @number must be greater than 0.';
+        return;
+    end
+
+    declare @multiplier int = 1;
+
+    print 'Multiplication Table for ' + CAST(@number AS VARCHAR(10)) + ':';
+
+    while @multiplier <= 10
+    begin
+        declare @result int = @number * @multiplier;
+        Print CAST(@number AS VARCHAR(10)) + ' x ' + CAST(@multiplier AS VARCHAR(10)) + ' = ' + CAST(@result AS VARCHAR(10));
+        set @multiplier = @multiplier + 1;
+    end
+ 
+end
+
+EXEC dbo.GenerateMultiplicationTable @number = 7
+----------------------------------------------------------------------------------------------------------
+--3. Create a trigger to restrict data manipulation on EMP table during General holidays. Display the error message like “Due to Independence day you cannot manipulate data” or "Due To Diwali", you cannot manipulate" etc
+
+Note: Create holiday table as (holiday_date,Holiday_name) store at least 4 holiday details. try to match and stop manipulation.
+
+create table holiday (
+    holiday_date date,
+    holiday_name varchar(25)
+);
+
+insert into holiday (holiday_date, holiday_name) values ('2024-06-02', 'Gandhi jayanthi');
+insert into holiday (holiday_date, holiday_name) values ('2024-10-15', 'Diwali');
+insert into holiday (holiday_date, holiday_name) values ('2024-12-25', 'Christmas');
+insert into holiday (holiday_date, holiday_name) values ('2024-01-01', 'New year');
+
+create table EMP (
+    emp_id int Primary key,
+    emp_name varchar(25)
+);
+
+insert into EMP (emp_id, emp_name) Values (1, 'suma');
+insert into EMP (emp_id, emp_name) Values (2, 'Hari');
+
+create or alter TRIGGER emp_manipulation
+ON EMP
+After INSERT, UPDATE, DELETE
+as
+Begin
+    Declare @today DATE = CONVERT(DATE, GETDATE());
+    Declare @holiday_name Varchar(25);
+    
+    
+    IF EXISTS (SELECT 1 FROM holiday WHERE holiday_date = @today)
+    Begin
+        Select @holiday_name = holiday_name
+        From holiday
+        Where holiday_date = @today;
+        
+       declare @errorMessage varchar(100);
+       set @errorMessage = CONCAT('Due to ', @holiday_name, ', you cannot manipulate data.');
+       raiserror(@errorMessage, 16, 1);
+
+        Rollback Transaction;
+    end
+end;
+
+insert into holiday (holiday_date, holiday_name) Values (GETDATE(), 'test Holiday');
+select * from holiday
+
+
+insert into EMP (emp_id, emp_name) Values (3,  'John');
+Update EMP Set emp_name = 'peter' Where emp_id = 1;
+Delete From EMP Where emp_id = 1;
+
+
+
