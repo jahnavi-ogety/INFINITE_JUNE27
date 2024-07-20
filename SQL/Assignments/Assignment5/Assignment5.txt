@@ -1,0 +1,67 @@
+
+----Assignment5--------------
+
+Create table Employees (
+    EmployeeID numeric(10) primary key,
+    EmpName varchar(30),
+    EmpSalary numeric(10)
+);
+
+Insert into Employees(EmployeeID, EmpName, EmpSalary) values 
+    (01, 'jahnavi', 3000), 
+    (02, 'swarna', 5000), 
+    (03, 'latha', 4500);
+
+select * from Employees
+
+Create proc Payslip  @EmployeeID int
+as
+Begin
+    declare @EmployeeName varchar(25)
+    declare @Salary decimal(10, 2)
+    declare @HRA decimal(12, 2)
+    declare @DA decimal(10, 2)
+    declare @PF decimal(10, 2)
+    declare @IT decimal(12, 2)
+    declare @GrossSalary decimal(12, 2)
+    declare @Deductions decimal(12, 2)
+    declare @NetSalary decimal(10, 2)
+
+    
+    select
+        @EmployeeName = EmpName,
+        @Salary = EmpSalary
+    from Employees
+    where EmployeeID = @EmployeeID;
+
+    -- Calculate HRA, DA, PF, IT based on conditions
+    set @HRA = 0.10 * @Salary;
+    set @DA = 0.20 * @Salary;
+    set @PF = 0.08 * @Salary;
+    set @IT = 0.05 * @Salary;
+
+    set @GrossSalary = @Salary + @HRA + @DA;
+
+    set @Deductions = @PF + @IT;
+
+    set @NetSalary = @GrossSalary - @Deductions;
+
+    print '--PAY SLIP--';
+    print '---------------------------------------------------------';
+    print 'Employee Name: ' + @EmployeeName;
+    print '------------';
+    print 'Salary  : ' + CAST(@Salary as Varchar(20));
+    print 'HRA (10%)     : ' + CAST(@HRA as Varchar(20));
+    print 'DA (20%)      : ' + CAST(@DA as Varchar(20));
+    print '---------------------------------------------------------';
+    print 'Gross Salary  : ' + CAST(@GrossSalary as Varchar(20));
+    print 'PF (8%)       : ' + CAST(@PF as Varchar(20));
+    print 'IT (5%)       : ' + CAST(@IT as Varchar(20));
+    print '---------------------------------------------------------';
+    print 'Deductions    : ' + CAST(@Deductions as Varchar(20));
+    print '---------------------------------------------------------';
+    print 'Net Salary    : ' + CAST(@NetSalary as Varchar(20));
+
+end
+
+exec Payslip @EmployeeID = 3;
