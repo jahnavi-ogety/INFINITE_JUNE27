@@ -1,0 +1,31 @@
+create database Employeemanagement
+
+create table Employee_Details (
+    Empno int primary key,
+    EmpName varchar(50) not null,
+    Empsal numeric(10, 2) check (Empsal >= 25000),
+    Emptype char(1) check (Emptype in ('F', 'P'))
+);
+
+select * from Employee_Details
+
+
+create procedure InsertEmp_Details
+    @EmpName Varchar(50),
+    @Empsal numeric(10, 2),
+    @Emptype char(1)
+as
+begin
+    declare @NextEmpno int;
+
+    
+    set @NextEmpno = coalesce((select max(Empno) + 1 from Employee_Details), 1);
+
+    
+    insert into Employee_Details (Empno, EmpName, Empsal, Emptype)
+    values (@NextEmpno, @EmpName, @Empsal, @Emptype);
+
+    
+    select @NextEmpno AS Empno;
+END;
+
