@@ -1,0 +1,7 @@
+C:\Batch1\ADO\Assignment1\Assignment1\bin\Debug\Assignment1.exe.config
+C:\Batch1\ADO\Assignment1\Assignment1\bin\Debug\Assignment1.exe
+C:\Batch1\ADO\Assignment1\Assignment1\bin\Debug\Assignment1.pdb
+C:\Batch1\ADO\Assignment1\Assignment1\obj\Debug\Assignment1.csproj.AssemblyReference.cache
+C:\Batch1\ADO\Assignment1\Assignment1\obj\Debug\Assignment1.csproj.CoreCompileInputs.cache
+C:\Batch1\ADO\Assignment1\Assignment1\obj\Debug\Assignment1.exe
+C:\Batch1\ADO\Assignment1\Assignment1\obj\Debug\Assignment1.pdb
