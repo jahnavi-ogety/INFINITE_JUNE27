@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Multiplication and Division Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffd800;
+            
+            
+        }
+    </style>
+
+    
+</head>
+<body>
+    
+        <div class="container">
+            <h2>Calculator</h2>
+
+            <form id="calculatorForm">
+                <label for="num1">First number:</label>
+                <input type="number" id="num1" name="num1" required>
+
+                <label for="num2">Second number:</label>
+                <input type="number" id="num2" name="num2" required>
+
+                <button type="button" id="multiplyButton">Multiply</button>
+                <button type="button" id="divideButton">Divide</button>
+            </form>
+
+            <div id="result"></div>
+        </div>
+
+        <script>
+            
+            document.getElementById("multiplyButton").addEventListener("click", function () {
+                calculate("multiply");
+            });
+
+            
+            document.getElementById("divideButton").addEventListener("click", function () {
+                calculate("divide");
+            });
+
+           
+            function calculate(operation) {
+                
+                let num1 = parseFloat(document.getElementById("num1").value);
+                let num2 = parseFloat(document.getElementById("num2").value);
+
+                
+                if (!isNaN(num1) && !isNaN(num2)) {
+                    
+                    let result;
+                    if (operation === "multiply") {
+                        result = num1 * num2;
+                    } else if (operation === "divide" && num2 !== 0) {
+                        result = num1 / num2;
+                    } else {
+                        
+                        document.getElementById("result").innerHTML = "<p>Error: Division by zero or invalid operation.</p>";
+                        return;
+                    }
+                    
+                    document.getElementById("result").innerHTML = `<p>The Result for ${operation}: ${result}</p>`;
+
+                } else {
+                    
+                    document.getElementById("result").innerHTML = "<p>Please enter valid numbers.</p>";
+                }
+            }
+        </script>
+ 
+</body>
+</html>

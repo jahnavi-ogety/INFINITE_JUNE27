@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Even or Odd Checker</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ff6a00;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            
+        }
+
+        h1 {
+            text-align: center;
+            color: #0026ff;
+            margin-bottom: 20px;
+        }
+
+        #startButton {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: auto 20px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+            #startButton:hover {
+                background-color: #45a049;
+            }
+
+        #output {
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+            #output p {
+                margin: 0;
+                padding: 10px 0;
+                font-size: 18px;
+                color: #333;
+                text-align: center;
+                border-bottom: 1px solid #ddd;
+            }
+
+    </style>
+</head>
+<body>
+    
+       <div class="container">
+            <h1>Odd or Even Checker</h1>
+
+            <button id="startButton">Click Here</button>
+
+            <div id="output"></div>
+        </div>
+
+        <script>
+            document.getElementById("startButton").addEventListener("click", function () {
+
+                for (let i = 0; i <= 15; i++) {
+
+                    if (i % 2 === 0) {
+
+                        document.getElementById("output").innerHTML += "<p>" + i + " is even</p>";
+                    } else {
+
+                        document.getElementById("output").innerHTML += "<p>" + i + " is odd</p>";
+                    }
+                }
+            });
+        </script>
+
+</body>
+</html>
