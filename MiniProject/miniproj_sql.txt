@@ -1,0 +1,150 @@
+create database miniproj
+use miniproj
+
+CREATE TABLE Trains (
+    tno INT  PRIMARY KEY,
+    tname VARCHAR(100),
+    [from] VARCHAR(100),
+    dest VARCHAR(100),
+    price DECIMAL(10, 2),
+    class_of_travel VARCHAR(10),
+    train_status VARCHAR(10),
+    seats_available INT
+);
+
+CREATE TABLE Bookings (
+    booking_id INT identity (1,1) PRIMARY KEY,
+    tno INT,
+    user_id INT,
+    seats_booked INT,
+    booking_date DATETIME,
+    FOREIGN KEY (tno) REFERENCES Trains(tno),
+    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+);
+
+ALTER TABLE Bookings
+ADD name NVARCHAR(100),
+    age INT,
+    price DECIMAL(10);
+
+
+alter table bookings
+add status varchar(25) default 'Active';
+
+
+
+CREATE TABLE Cancellations (
+    cancellation_id INT (1,1) PRIMARY KEY,
+    booking_id INT,
+    seats_cancelled INT,
+    cancellation_date DATETIME,
+    FOREIGN KEY (booking_id) REFERENCES Bookings(booking_id)
+);
+
+
+CREATE TABLE Users (
+    user_id INT identity(1,1) PRIMARY KEY,
+    username VARCHAR(50) UNIQUE,
+    password VARCHAR(50),
+    role VARCHAR(10) -- 'user' or 'admin'
+);
+
+-- Insert train data
+INSERT INTO Trains (tno, tname, [from], dest, price, class_of_travel, train_status, seats_available, Arrival_time, Depature_time)
+VALUES
+(14321, 'Rajdhani Express', 'Delhi', 'Mumbai', 1200.50, '1A', 'On Time', 150, '9:30 AM', '12:00 PM'),
+(14332, 'Shatabdi Express', 'Mumbai', 'Delhi', 1300.00, '2A', 'Delayed', 100, '8:45 PM', ' 4:00 AM'),
+(14544, 'Duronto Express', 'Kolkata', 'Chennai', 850.75, 'FC', 'On Time', 200, '6:30 AM', '11:00 PM'),
+(14132, 'Nizamuddin Express', 'Hyderabad', 'Bangalore', 1500.00, '3A', 'Cancelled', 0, '9:00 PM', '6:45 AM'),
+(11387, 'Nandigram Express', 'Patna', 'Delhi', 1100.00, 'EC', 'On Time', 160, '9:05 AM ', '10:00 PM'),
+(11209, 'Satyagrah Express', 'Varanasi', 'Delhi', 950.00, 'SL', 'Delayed', 130, '07:15 PM', '6:30 AM'),
+(17165, 'Kolkata Mail', 'Kolkata', 'Delhi', 1250.00, '1A', 'On Time', 140, '2:45 PM', '11:00 PM'),
+(11473, 'Chennai Express', 'Chennai', 'Mumbai', 1350.00, '2A', 'On Time', 220, ' 2:30 PM', '8:00 PM');
+
+
+
+INSERT INTO Users (username, password, role)
+VALUES
+('john_doe', 'password123', 'user'),
+('jane_smith', 'adminpass', 'admin'),
+('alice_johnson', 'userpass', 'user');
+
+
+
+INSERT INTO Bookings (tno, user_id, seats_booked, booking_date)
+VALUES
+(14543, 1, 2, '2024-07-27 10:00:00'),
+(14543, 3, 1, '2024-07-27 11:00:00');
+
+
+
+INSERT INTO Cancellations (booking_id, seats_cancelled, cancellation_date)
+VALUES
+(1, 1, '2024-07-28 12:00:00');
+
+select * from trains
+select * from Users
+select * from Bookings
+select * from Cancellations
+select * from passengers
+------------------------------------------------------
+
+ALTER TABLE Bookings
+ADD Gender varchar(10);
+
+ALTER TABLE Bookings
+ADD CONSTRAINT fk_user
+FOREIGN KEY (tno) REFERENCES trains(tno);
+
+alter table Bookings
+add Total_Price int;
+
+
+
+
+alter table trains
+add Depature_time varchar;
+
+alter table trains
+add Depature_time varchar(25);
+
+
+ALTER TABLE passengers
+DROP COLUMN passenger_id;
+
+
+UPDATE Bookings
+set status= 'Active'
+where tno=11387
+
+select * from Bookings
+
+
+update Users
+set role='admin'
+where user_id=3
+
+
+
+-- For Renaming the column name
+EXEC sp_rename 'Trains.dest', 'Destination', 'COLUMN';
+
+
+CREATE TABLE Passengers (
+    
+    booking_id INT FOREIGN KEY REFERENCES Bookings(booking_id),
+    name NVARCHAR(25),
+    age INT,
+    gender NVARCHAR(10)
+);
+
+select * from Passengers
+
+alter table passengers 
+add status varchar(10) default 'Active';
+
+alter table passengers
+add passenger_id int identity(1,1)
+
+alter table passengers
+add constraint pk_passengers primary key(passenger_id)

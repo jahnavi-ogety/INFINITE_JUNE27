@@ -1,0 +1,7 @@
+C:\Users\jahnavio\Desktop\Training sessions\MiniProj\MiniProj\bin\Debug\MiniProj.exe.config
+C:\Users\jahnavio\Desktop\Training sessions\MiniProj\MiniProj\bin\Debug\MiniProj.exe
+C:\Users\jahnavio\Desktop\Training sessions\MiniProj\MiniProj\bin\Debug\MiniProj.pdb
+C:\Users\jahnavio\Desktop\Training sessions\MiniProj\MiniProj\obj\Debug\MiniProj.csproj.AssemblyReference.cache
+C:\Users\jahnavio\Desktop\Training sessions\MiniProj\MiniProj\obj\Debug\MiniProj.csproj.CoreCompileInputs.cache
+C:\Users\jahnavio\Desktop\Training sessions\MiniProj\MiniProj\obj\Debug\MiniProj.exe
+C:\Users\jahnavio\Desktop\Training sessions\MiniProj\MiniProj\obj\Debug\MiniProj.pdb
