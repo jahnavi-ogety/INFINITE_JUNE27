@@ -1,0 +1,19 @@
+﻿﻿@model CC_MVC.Models.Movies
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.Mid)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Moviename)
+        @Html.TextBoxFor(model => model.Moviename, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DateofRelease)
+        @Html.TextBoxFor(model => model.DateofRelease, new { @class = "form-control", type = "date" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
